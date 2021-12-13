@@ -1,0 +1,33 @@
+//Allows me to have all my fuctions work. You would have to use the camera for this to work.
+var song, analyzer;
+var canvasPressed
+var Video;
+
+//This allows me to play the song I like from a video game I like playing.
+function preload() {
+  song = loadSound('Warframe _ Sleeping In The Cold Below.mp3');
+}
+
+//Having the circle in the video play to the beat, and plays the video.
+function setup() {
+  createCanvas(640,475)
+  song.loop();
+  analyzer = new p5.Amplitude();
+  analyzer.setInput(song);
+  
+  Video = createCapture(VIDEO)
+  Video.hide();
+}
+
+//I thought it would be cool to but a tint on the video and have a circle to play the beat playing to.
+function draw() {
+  background(255);
+  
+  tint('cyan')
+  image(Video,0,0)
+  
+  let rms = analyzer.getLevel();
+  fill('blue');
+  stroke(0);
+  ellipse(width / 2, height / 2, 10 + rms * 200, 10 + rms * 200);
+}
