@@ -1,0 +1,45 @@
+//I need some array so I thought I would just use them to have placement of my objects.
+var num = [200,180];
+
+let pumpkin;
+
+//The set up is just so that whole thing does not freak out and sow an error when trying the code.
+function setup() {
+  createCanvas(400, 400);
+  pumpkin = new Pumpkin()
+}
+
+//This allows the draw function or the class work so the punpkin shows on the background.
+function draw() {
+  background(0);
+  pumpkin.draw();
+}
+
+//the area that is where the pumpkin is constructed to create a nice pumpkin or jackolatern. 
+class Pumpkin{
+  constructor(){
+  }
+    
+    draw(){
+    noStroke()
+    
+  fill('green')
+  rect(170,50,60,60);
+  
+  fill('darkorange')
+  ellipse(200,200,230,num[0]);
+  
+  fill('purple')
+  triangle(150,150,170,180,130,num[1]);
+  
+  fill('purple')
+  triangle(250,150,270,180,230,num[1]);
+  
+  fill('purple')
+  arc(200, 220, 120, 90, 0, HALF_PI);
+  
+  fill('purple')
+  arc(200, 220, 120, 90, HALF_PI, PI);
+  
+}
+}
